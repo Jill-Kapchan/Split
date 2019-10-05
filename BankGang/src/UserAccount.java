@@ -17,6 +17,8 @@ public class UserAccount {
 	public ArrayList<UserAccount> friendsList;
 	public ArrayList<Card> cardList;
 	
+	private static int ENCRYPTION_NUMBER = 17;
+	
 	public UserAccount() {
 		fName = "?";
 		mName = "?";
@@ -124,12 +126,25 @@ public class UserAccount {
 	
 	//encrypts the card info
 	void encryption(Card tokenCard) {
+		String newData = "";
 	
+        for (int i = 0; i < tokenCard.getToken().length(); ++i) { 
+            // ASCII value  
+            int val = tokenCard.getToken().charAt(i);      
+            newData += (char)(val + ENCRYPTION_NUMBER); 
+		}
+        tokenCard.setToken(newData);
 	}
 	
 	//decrypts card info
 	void decryption(Card tokenCard) {
-		
+		String newData = "";
+        for (int i = 0; i < tokenCard.getToken().length(); ++i) { 
+            // ASCII value  
+            int val = tokenCard.getToken().charAt(i);        
+            newData += (char)(val - ENCRYPTION_NUMBER); 
+		}
+        tokenCard.setToken(newData);
 	}
 	
 	//deposits money from a card to the account

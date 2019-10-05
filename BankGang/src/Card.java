@@ -11,6 +11,8 @@ public class Card {
 	private int expDate;
 	private int cvvNumber;
 	
+	private String token;
+	
 	private ArrayList<SharedUser> sharedUsers;
 
 	public Card(UserAccount user, String cardName) {
@@ -21,6 +23,7 @@ public class Card {
 		cardNumber = 0;
 		expDate = 1022;
 		cvvNumber = 0;
+		token = "";
 		
 		sharedUsers = new ArrayList<SharedUser>();
 		this.sharedUsers.add(new SharedUser(user, 1)); // by default host pays 100% of charges
@@ -57,6 +60,10 @@ public class Card {
 		return cvvNumber;
 	}
 	
+	public String getToken() {
+		return token;
+	}
+	
 	public ArrayList<SharedUser> getSharedUsers() {
 		return this.sharedUsers;
 	}
@@ -90,6 +97,16 @@ public class Card {
 	
 	public void setCvvNum(int cvvNumber) {
 		this.cvvNumber = cvvNumber;
+	}
+	
+	public void setToken() {
+		this.token  = Long.toString(this.getCardNum()) + "/" +
+				  	  Integer.toString(this.getExpDate()) + "/" +
+				  	  Integer.toString(this.getCvvNum());
+	}
+	
+	public void setToken(String token) {
+		this.token  = token;
 	}
 	
 	//---------------------
