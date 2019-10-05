@@ -28,12 +28,84 @@ public class UserAccount {
 		accountBalance = 0.0;
 		friendsList = null;
 		cardList = null;
-		
 	}
 	
+	//----------------------------
+	//Accessor methods
+	//----------------------------
+	public String getfName() {
+		return fName;
+	}
+
+	public String getmName() {
+		return mName;
+	}
+
+	public String getlName() {
+		return lName;
+	}
+	
+	public String getLocation() {
+		return location;
+	}
+	
+	public String getUsername() {
+		return username;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public int getRoutingId() {
+		return routingId;
+	}
+
+	public double getAccountBalance() {
+		return accountBalance;
+	}
+	
+	//----------------------------
+	//Mutator methods
+	//----------------------------
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+	
+	public void setmName(String mName) {
+		this.mName = mName;
+	}
+
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setRoutingId(int routingId) {
+		this.routingId = routingId;
+	}
+
+	public void setAccountBalance(double accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+	
+	//----------------------------
+	//Functions
+	//----------------------------
 	//function generates a card and returns generated card
 	void generate() {
-	//
+	
 
 	}
 	
@@ -72,6 +144,5 @@ public class UserAccount {
 	void removeFriend(String userEnemy) {
 		
 	}
-	
 	
 }
