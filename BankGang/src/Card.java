@@ -9,7 +9,6 @@ public class Card {
 	private int cardNumber;
 	private int expDate;
 	private int cvvNumber;
-	private boolean bankType;
 	
 	private ArrayList<SharedUser> sharedUsers;
 
@@ -20,7 +19,6 @@ public class Card {
 		cardNumber = 0;
 		expDate = 0;
 		cvvNumber = 0;
-		bankType = false;
 		
 		sharedUsers = new ArrayList<SharedUser>();
 	}
@@ -50,10 +48,6 @@ public class Card {
 	
 	public int getCvvNum() {
 		return cvvNumber;
-	}
-	
-	public boolean getBank() {
-		return bankType;
 	}
 	
 	public ArrayList<SharedUser> getSharedUsers() {
@@ -87,12 +81,9 @@ public class Card {
 		this.cvvNumber = cvvNumber;
 	}
 	
-	public void setBank(boolean bankType) {
-		this.bankType = bankType;
-	}
-	
+	//---------------------
 	// sharing functions
-	
+	//---------------------	
 	void charge(ArrayList<SharedUser> shareList) {
 		
 	}
