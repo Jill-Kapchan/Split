@@ -24,5 +24,12 @@ public class SharedUser {
 		this.payPercent = payPercent;
 	}
 	
+	@Override
+	public String toString() {
+		String userInfo = this.userAccount.toString();
+		String pay = "Pay Percent: " + this.payPercent + "\n";
+		
+		return userInfo + pay;
+	}
 	
 }

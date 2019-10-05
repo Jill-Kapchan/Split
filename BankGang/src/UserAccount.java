@@ -12,11 +12,11 @@ public class UserAccount {
 	private String username;
 	private String password;
 	
-	private int accountNumber;
+	private long accountNumber;
 	private double accountBalance;
 	
-	public ArrayList<UserAccount> friendsList;
-	public ArrayList<Card> cardList;
+	private ArrayList<UserAccount> friendsList;
+	private ArrayList<Card> cardList;
 	
 	private static int ENCRYPTION_NUMBER = 17;
 	
@@ -28,7 +28,7 @@ public class UserAccount {
 		email = "?";
 		username = "?";
 		password = "?";
-		accountNumber = 0;
+		accountNumber = (long) (Math.random() * 10000000.0) + 10000000L;
 		accountBalance = 0.0;
 		friendsList = new ArrayList<UserAccount>();
 		cardList = new ArrayList<Card>();
@@ -65,7 +65,7 @@ public class UserAccount {
 		return password;
 	}
 
-	public int getRoutingId() {
+	public long getAccountNumber() {
 		return accountNumber;
 	}
 
@@ -118,7 +118,7 @@ public class UserAccount {
 	//----------------------------
 	
 	//function generates a card and returns generated card
-	public Card generate(String cardName) {
+	public Card generate(String cardName, double limit, boolean oneUse, boolean isShared) {
 		long start = 4000000000000000L;
 		long add = (long) (Math.random() * 1000000000000000.0);
 		long cardNumber = start + add;
@@ -126,7 +126,7 @@ public class UserAccount {
 		int cvv = (int) (Math.random() * 1000.0) + 100;
 		if (cvv > 999) cvv = cvv - 100;
 		
-		Card card = new Card(this, cardName);
+		Card card = new Card(this, cardName, limit, oneUse, isShared);
 		card.setCardNum(cardNumber);
 		card.setCvvNum(cvv);
 		
@@ -184,6 +184,27 @@ public class UserAccount {
 	//removes a friend using their username
 	void removeFriend(UserAccount userEnemy) {
 		this.friendsList.remove(userEnemy);
+	}
+
+	public ArrayList<UserAccount> getFriendsList() {
+		return friendsList;
+	}
+
+	public ArrayList<Card> getCardList() {
+		return cardList;
+	}
+	
+	@Override
+	public String toString() {
+		String fullName = "Account: " + fName + " " + mName + " " + lName + "\n";
+		String loc = "Location: " + this.location + "\n";
+		String email = "Email: " + this.email + "\n";
+		String username = "Username: " + this.username + "\n";
+		String password = "Password: " + this.password + "\n";
+		String accountNumber = "Account Number: " + this.accountNumber + "\n";
+		String accountBalance = "Account Balance: " + this.accountBalance + "\n";
+		
+		return fullName + loc + email + username + password + accountNumber + accountBalance;
 	}
 	
 }
