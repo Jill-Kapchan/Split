@@ -106,9 +106,20 @@ public class UserAccount {
 	//----------------------------
 	
 	//function generates a card and returns generated card
-	void generate() {
-	
-
+	public Card generate() {
+		long start = 4000000000000000L;
+		long add = (long) (Math.random() * 1000000000000000.0);
+		long cardNumber = start + add;
+		
+		int cvv = (int) (Math.random() * 1000.0) + 100;
+		if (cvv > 999) cvv = cvv - 100;
+		
+		Card card = new Card(fName, mName, lName);
+		card.setCardNum(cardNumber);
+		card.setCvvNum(cvv);
+		
+		this.cardList.add(card);
+		return card;
 	}
 	
 	//encrypts the card info

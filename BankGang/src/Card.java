@@ -6,7 +6,7 @@ public class Card {
 	private String mName;
 	private String lName;
 	
-	private int cardNumber;
+	private long cardNumber;
 	private int expDate;
 	private int cvvNumber;
 	
@@ -17,7 +17,7 @@ public class Card {
 		this.mName = mName;
 		this.lName = lName;
 		cardNumber = 0;
-		expDate = 0;
+		expDate = 1022;
 		cvvNumber = 0;
 		
 		sharedUsers = new ArrayList<SharedUser>();
@@ -38,7 +38,7 @@ public class Card {
 		return lName;
 	}
 	
-	public int getCardNum() {
+	public long getCardNum() {
 		return cardNumber;
 	}
 	
@@ -69,7 +69,7 @@ public class Card {
 		this.lName = lName;
 	}
 	
-	public void setCardNum(int cardNumber) {
+	public void setCardNum(long cardNumber) {
 		this.cardNumber = cardNumber;
 	}
 	
