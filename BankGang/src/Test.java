@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Test {
 	
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+		/* Scanner scanner = new Scanner(System.in);
 		
 		HashMap<String, UserAccount> accounts = new HashMap<>();
 		UserAccount currentUser = null, check = null;
@@ -27,25 +27,25 @@ public class Test {
 				UserAccount user = new UserAccount();
 				
 				System.out.println("First Name:");
-				user.setfName(scanner.nextLine().strip());
+				user.setfName(scanner.nextLine().trim());
 				
 				System.out.println("Middle Name:");
-				user.setmName(scanner.nextLine().strip());
+				user.setmName(scanner.nextLine().trim());
 				
 				System.out.println("Last Name:");
-				user.setlName(scanner.nextLine().strip());
+				user.setlName(scanner.nextLine().trim());
 				
 				System.out.println("Location:");
-				user.setLocation(scanner.nextLine().strip());
+				user.setLocation(scanner.nextLine().trim());
 				
 				System.out.println("Username:");
-				username = scanner.nextLine().strip().toLowerCase();
+				username = scanner.nextLine().trim().toLowerCase();
 				
 				check = accounts.get(username);
 				
 				while (check != null) {
 					System.out.println("Username taken. Please enter a new one:");
-					username = scanner.nextLine().strip().toLowerCase();
+					username = scanner.nextLine().trim().toLowerCase();
 					check = accounts.get(username);
 				}
 				
@@ -53,13 +53,13 @@ public class Test {
 				user.setUsername(username);
 				
 				System.out.println("Password:");
-				user.setPassword(scanner.nextLine().strip());
+				user.setPassword(scanner.nextLine().trim());
 				accounts.putIfAbsent(username, user);
 				System.out.println("Account created. Thank you " + user.getfName() + "!");
 				break;
 			case 'D':
 				System.out.println("Please enter the username of account to delete:");
-				username = scanner.nextLine().strip().toLowerCase();
+				username = scanner.nextLine().trim().toLowerCase();
 				
 				check = accounts.get(username);
 				
@@ -77,17 +77,29 @@ public class Test {
 				
 				while (!login) {
 					System.out.println("Username: ");
-					username = scanner.nextLine().strip().toLowerCase();
+					username = scanner.nextLine().trim().toLowerCase();
 					
 					check = accounts.get(username);
 					
+					String passwordCheck = null;
+					
 					if (check != null) {
-						password = accounts.get(username).getPassword();
+						passwordCheck = accounts.get(username).getPassword();
 					}
-					else password = " ";
 					
 					System.out.println("Password: ");
+					password = scanner.nextLine();
+					
+					if (passwordCheck == null || passwordCheck != password) {
+						System.out.println("Invalid username or password, please try again.");
+					}
+					else {
+						login = true;
+					}
 				}
+				
+				currentUser = check;
+				break;
 				
 				
 			}
@@ -95,7 +107,7 @@ public class Test {
 		}
 		while (input != 'Q');
 		
-		scanner.close();
+		scanner.close(); */
 	}
 	
 }

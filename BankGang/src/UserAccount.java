@@ -8,6 +8,7 @@ public class UserAccount {
 	private String lName;
 	private String location;
 	
+	private String email;
 	private String username;
 	private String password;
 	
@@ -24,6 +25,7 @@ public class UserAccount {
 		mName = "?";
 		lName = "?";
 		location = "?";
+		email = "?";
 		username = "?";
 		password = "?";
 		accountNumber = 0;
@@ -49,6 +51,10 @@ public class UserAccount {
 	
 	public String getLocation() {
 		return location;
+	}
+	
+	public String getEmail() {
+		return email;
 	}
 	
 	public String getUsername() {
@@ -85,6 +91,10 @@ public class UserAccount {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public void setUsername(String username) {

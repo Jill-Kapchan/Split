@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class BankUtils {
 	
@@ -16,30 +14,6 @@ public class BankUtils {
 		}
 		
 		return null;
-	}
-	
-	public static UserAccount createUserAccount(Scanner s) {
-		UserAccount user = new UserAccount();
-		
-		System.out.println("First Name:");
-		user.setfName(s.nextLine().strip());
-		
-		System.out.println("Middle Name:");
-		user.setmName(s.nextLine().strip());
-		
-		System.out.println("Last Name:");
-		user.setlName(s.nextLine().strip());
-		
-		System.out.println("Location:");
-		user.setLocation(s.nextLine().strip());
-		
-		System.out.println("Username:");
-		user.setUsername(s.nextLine().strip());
-		
-		System.out.println("Password:");
-		user.setPassword(s.nextLine().strip());
-		
-		return user;
 	}
 	
 }
