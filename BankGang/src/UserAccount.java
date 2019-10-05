@@ -11,7 +11,7 @@ public class UserAccount {
 	private String username;
 	private String password;
 	
-	private int routingId;
+	private int accountNumber;
 	private double accountBalance;
 	
 	public ArrayList<UserAccount> friendsList;
@@ -24,7 +24,7 @@ public class UserAccount {
 		location = "?";
 		username = "?";
 		password = "?";
-		routingId = 0;
+		accountNumber = 0;
 		accountBalance = 0.0;
 		friendsList = new ArrayList<UserAccount>();
 		cardList = new ArrayList<Card>();
@@ -58,7 +58,7 @@ public class UserAccount {
 	}
 
 	public int getRoutingId() {
-		return routingId;
+		return accountNumber;
 	}
 
 	public double getAccountBalance() {
@@ -94,7 +94,7 @@ public class UserAccount {
 	}
 
 	public void setRoutingId(int routingId) {
-		this.routingId = routingId;
+		this.accountNumber = routingId;
 	}
 
 	public void setAccountBalance(double accountBalance) {

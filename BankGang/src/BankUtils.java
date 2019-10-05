@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class BankUtils {
 	
+	public static final int ROUTING_NUMBER = 1212806749;
 	
 	// method name may change
 	public static SharedUser findUser(Card card, UserAccount user) {
