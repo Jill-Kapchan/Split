@@ -1,9 +1,9 @@
 
 public class SharedUser {
-	public String sharedUser;
+	public UserAccount sharedUser;
 	public double payPercent;
 	
-	public SharedUser(String sharedUser, double payPercent) {
+	public SharedUser(UserAccount sharedUser, double payPercent) {
 		this.sharedUser = sharedUser;
 		this.payPercent = payPercent;
 	}

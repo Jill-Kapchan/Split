@@ -5,7 +5,7 @@ public class UserAccount {
 	
 	private String fName;
 	private String mName;
-	private  String lName;
+	private String lName;
 	private String location;
 	
 	private String username;
@@ -14,7 +14,7 @@ public class UserAccount {
 	private int routingId;
 	private double accountBalance;
 	
-	public ArrayList<String> friendsList;
+	public ArrayList<UserAccount> friendsList;
 	public ArrayList<Card> cardList;
 	
 	public UserAccount() {

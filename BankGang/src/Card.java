@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Card {
 	
@@ -9,15 +10,19 @@ public class Card {
 	private int expDate;
 	private int cvvNumber;
 	private boolean bankType;
+	
+	private ArrayList<SharedUser> sharingStatus;
 
-	public Card() {
-		fName = "?";
-		mName = "?";
-		lName = "?";
+	public Card(String fName, String mName, String lName) {
+		this.fName = fName;
+		this.mName = mName;
+		this.lName = lName;
 		cardNumber = 0;
 		expDate = 0;
 		cvvNumber = 0;
 		bankType = false;
+		
+		sharingStatus = new ArrayList<SharedUser>();
 	}
 	
 	//----------------------------
@@ -58,7 +63,7 @@ public class Card {
 		this.fName = fName;
 	}
 	
-	public void getMName(String mName) {
+	public void setMName(String mName) {
 		this.mName = mName;
 	}
 	
@@ -82,5 +87,22 @@ public class Card {
 		this.bankType = bankType;
 	}
 	
+	// sharing functions
+	
+	void charge(ArrayList<SharedUser> shareList) {
+		
+	}
+	
+	void changeSplit(ArrayList<SharedUser> shareList) {
+		
+	}
+	
+	void addSharedUser(ArrayList<SharedUser> shareList, String userAdd) {
+		
+	}
+	
+	void removeSharedUser(ArrayList<SharedUser> shareList, String userRemove) {
+		
+	}
 	
 }
