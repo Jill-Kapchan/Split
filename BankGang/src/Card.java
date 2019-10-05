@@ -5,6 +5,7 @@ public class Card {
 	private String fName;
 	private String mName;
 	private String lName;
+	private String cardName;
 	
 	private long cardNumber;
 	private int expDate;
@@ -12,15 +13,17 @@ public class Card {
 	
 	private ArrayList<SharedUser> sharedUsers;
 
-	public Card(String fName, String mName, String lName) {
-		this.fName = fName;
-		this.mName = mName;
-		this.lName = lName;
+	public Card(UserAccount user, String cardName) {
+		this.fName = user.getfName();
+		this.mName = user.getmName();
+		this.lName = user.getlName();
+		this.cardName = cardName;
 		cardNumber = 0;
 		expDate = 1022;
 		cvvNumber = 0;
 		
 		sharedUsers = new ArrayList<SharedUser>();
+		this.sharedUsers.add(new SharedUser(user, 1)); // by default host pays 100% of charges
 	}
 	
 	//----------------------------
@@ -36,6 +39,10 @@ public class Card {
 	
 	public String getlName() {
 		return lName;
+	}
+	
+	public String getCardName() {
+		return this.cardName;
 	}
 	
 	public long getCardNum() {
@@ -69,6 +76,10 @@ public class Card {
 		this.lName = lName;
 	}
 	
+	public void setCardName(String cardName) {
+		this.cardName = cardName;
+	}
+	
 	public void setCardNum(long cardNumber) {
 		this.cardNumber = cardNumber;
 	}
@@ -84,13 +95,13 @@ public class Card {
 	//---------------------
 	// sharing functions
 	//---------------------	
-	void charge(ArrayList<SharedUser> shareList) {
-		
+	void charge(double amt) {
+		// round down on uneven charges, host will pay the rest
 	}
 	
 	// TODO: later
 	void changeSplit(UserAccount user, double percent) {
-		SharedUser shared = BankUtils.findUser(this, user);
+		SharedUser shared = BankUtils.findSharedUser(this, user);
 		
 		shared.setPayPercent(percent);
 	}
@@ -102,7 +113,7 @@ public class Card {
 	}
 	
 	void removeSharedUser(UserAccount user) {
-		SharedUser shared = BankUtils.findUser(this, user);
+		SharedUser shared = BankUtils.findSharedUser(this, user);
 		
 		this.sharedUsers.remove(shared);
 	}

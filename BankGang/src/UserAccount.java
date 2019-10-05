@@ -106,7 +106,7 @@ public class UserAccount {
 	//----------------------------
 	
 	//function generates a card and returns generated card
-	public Card generate() {
+	public Card generate(String cardName) {
 		long start = 4000000000000000L;
 		long add = (long) (Math.random() * 1000000000000000.0);
 		long cardNumber = start + add;
@@ -114,7 +114,7 @@ public class UserAccount {
 		int cvv = (int) (Math.random() * 1000.0) + 100;
 		if (cvv > 999) cvv = cvv - 100;
 		
-		Card card = new Card(fName, mName, lName);
+		Card card = new Card(this, cardName);
 		card.setCardNum(cardNumber);
 		card.setCvvNum(cvv);
 		
@@ -145,18 +145,20 @@ public class UserAccount {
 	
 	//transfers an amount from the current user 
 	//to another user
-	void transfer(String userToTransfer, double amountTransfer) {
-		
+	void transfer(UserAccount user, double amountTransfer) {
+		user.deposit(amountTransfer);
+		this.withdraw(amountTransfer);
 	}
 	
 	//adds a friend using their username
-	void addFriend(String userFriend) {
-		
+	void addFriend(UserAccount userFriend) {
+		if (this.friendsList.indexOf(userFriend) == -1)
+			this.friendsList.add(userFriend);
 	}
 	
 	//removes a friend using their username
-	void removeFriend(String userEnemy) {
-		
+	void removeFriend(UserAccount userEnemy) {
+		this.friendsList.remove(userEnemy);
 	}
 	
 }
