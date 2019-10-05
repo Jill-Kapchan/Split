@@ -68,6 +68,7 @@ public class UserAccount {
 	//----------------------------
 	//Mutator methods
 	//----------------------------
+	
 	public void setfName(String fName) {
 		this.fName = fName;
 	}
@@ -103,6 +104,7 @@ public class UserAccount {
 	//----------------------------
 	//Functions
 	//----------------------------
+	
 	//function generates a card and returns generated card
 	void generate() {
 	
