@@ -20,14 +20,14 @@ public class Test {
 		test2.setEmail("sdf@asu.edu");
 		test2.setLocation("423");
 		
+		test.addFriend(test2);
+		
+		
+		
 		Card card = test.generate("Test", 1000, true, true);
 		card.addSharedUser(test2, .50);
 		
 		Card card2 = test.generate("Test2", -1, false, false);
-		
-		System.out.println(test.getCardList().toString());
-		
-		card.removeSharedUser(test2);
 		
 		System.out.println(test.getCardList().toString());
 		

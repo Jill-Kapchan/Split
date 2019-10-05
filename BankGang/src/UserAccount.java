@@ -177,8 +177,10 @@ public class UserAccount {
 	
 	//adds a friend using their username
 	void addFriend(UserAccount userFriend) {
-		if (this.friendsList.indexOf(userFriend) == -1)
+		if (this.friendsList.indexOf(userFriend) == -1) {
 			this.friendsList.add(userFriend);
+			userFriend.addFriend(this);
+		}
 	}
 	
 	//removes a friend using their username
@@ -203,8 +205,13 @@ public class UserAccount {
 		String password = "Password: " + this.password + "\n";
 		String accountNumber = "Account Number: " + this.accountNumber + "\n";
 		String accountBalance = "Account Balance: " + this.accountBalance + "\n";
+		StringBuilder sb = new StringBuilder("Friends: ");
 		
-		return fullName + loc + email + username + password + accountNumber + accountBalance;
+		for (UserAccount user : friendsList) {
+			sb.append(user.getfName() + ", ");
+		}
+		
+		return fullName + loc + email + username + password + accountNumber + accountBalance + sb.toString() + "\n";
 	}
 	
 }
