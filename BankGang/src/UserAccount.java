@@ -3,16 +3,16 @@ import java.util.ArrayList;
 public class UserAccount {
 	
 	
-	public String fName;
-	public String mName;
-	public String lName;
-	public String location;
+	private String fName;
+	private String mName;
+	private  String lName;
+	private String location;
 	
-	public String username;
-	public String password;
+	private String username;
+	private String password;
 	
-	public int routingId;
-	public double accountBalance;
+	private int routingId;
+	private double accountBalance;
 	
 	public ArrayList<String> friendsList;
 	public ArrayList<Card> cardList;

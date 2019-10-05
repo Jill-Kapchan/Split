@@ -1,14 +1,14 @@
 
 public class Card {
 	
-	public String fName;
-	public String mName;
-	public String lName;
+	private String fName;
+	private String mName;
+	private String lName;
 	
-	public int cardNumber;
-	public int expDate;
-	public int cvvNumber;
-	public boolean bankType;
+	private int cardNumber;
+	private int expDate;
+	private int cvvNumber;
+	private boolean bankType;
 
 	public Card() {
 		fName = "?";
