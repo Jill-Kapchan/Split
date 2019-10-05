@@ -26,8 +26,8 @@ public class UserAccount {
 		password = "?";
 		routingId = 0;
 		accountBalance = 0.0;
-		friendsList = null;
-		cardList = null;
+		friendsList = new ArrayList<UserAccount>();
+		cardList = new ArrayList<Card>();
 	}
 	
 	//----------------------------
@@ -113,7 +113,7 @@ public class UserAccount {
 	
 	//encrypts the card info
 	void encryption(Card tokenCard) {
-		
+	
 	}
 	
 	//decrypts card info
@@ -123,12 +123,13 @@ public class UserAccount {
 	
 	//deposits money from a card to the account
 	void withdraw(double amtWithdraw) {
+		this.accountBalance += amtWithdraw;
 		
 	}
 	
 	//withdraws money from a card to the account
 	void deposit(double amtDeposit) {
-		
+		this.accountBalance -= amtDeposit;
 	}
 	
 	//transfers an amount from the current user 
