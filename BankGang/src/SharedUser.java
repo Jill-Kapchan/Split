@@ -1,10 +1,28 @@
 
 public class SharedUser {
-	public UserAccount sharedUser;
-	public double payPercent;
+	private UserAccount userAccount;
+	private double payPercent;
 	
 	public SharedUser(UserAccount sharedUser, double payPercent) {
-		this.sharedUser = sharedUser;
+		this.userAccount = sharedUser;
 		this.payPercent = payPercent;
 	}
+
+	public UserAccount getUserAccount() {
+		return userAccount;
+	}
+
+	public void setSharedUser(UserAccount sharedUser) {
+		this.userAccount = sharedUser;
+	}
+
+	public double getPayPercent() {
+		return payPercent;
+	}
+
+	public void setPayPercent(double payPercent) {
+		this.payPercent = payPercent;
+	}
+	
+	
 }

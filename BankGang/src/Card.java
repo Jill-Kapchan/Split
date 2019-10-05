@@ -11,7 +11,7 @@ public class Card {
 	private int cvvNumber;
 	private boolean bankType;
 	
-	private ArrayList<SharedUser> sharingStatus;
+	private ArrayList<SharedUser> sharedUsers;
 
 	public Card(String fName, String mName, String lName) {
 		this.fName = fName;
@@ -22,7 +22,7 @@ public class Card {
 		cvvNumber = 0;
 		bankType = false;
 		
-		sharingStatus = new ArrayList<SharedUser>();
+		sharedUsers = new ArrayList<SharedUser>();
 	}
 	
 	//----------------------------
@@ -54,6 +54,10 @@ public class Card {
 	
 	public boolean getBank() {
 		return bankType;
+	}
+	
+	public ArrayList<SharedUser> getSharedUsers() {
+		return this.sharedUsers;
 	}
 	
 	//----------------------------
@@ -93,16 +97,23 @@ public class Card {
 		
 	}
 	
-	void changeSplit(ArrayList<SharedUser> shareList) {
+	// TODO: later
+	void changeSplit(UserAccount user, double percent) {
+		SharedUser shared = BankUtils.findUser(this, user);
 		
+		shared.setPayPercent(percent);
 	}
 	
-	void addSharedUser(ArrayList<SharedUser> shareList, String userAdd) {
+	void addSharedUser(UserAccount user, double payPercent) {
+		SharedUser shared = new SharedUser(user, payPercent);
 		
+		this.sharedUsers.add(shared);
 	}
 	
-	void removeSharedUser(ArrayList<SharedUser> shareList, String userRemove) {
+	void removeSharedUser(UserAccount user) {
+		SharedUser shared = BankUtils.findUser(this, user);
 		
+		this.sharedUsers.remove(shared);
 	}
 	
 }
